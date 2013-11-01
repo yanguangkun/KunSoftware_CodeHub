@@ -12,6 +12,9 @@
     <slf4j.version>1.6.1</slf4j.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  
+  
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -152,11 +155,21 @@
         <directory>${basedir}/src/main/resources</directory>
       </resource>
       <resource>
-        <directory>${basedir}/src/main/webapp/WEB-INF</directory>
-        <targetPath>${project.build.directory}</targetPath>
+        <directory>${basedir}/webapp</directory>
+        <targetPath>${project.build.directory}/${groupId}-${version}</targetPath>
       </resource>
     </resources>
     <plugins>
+      <plugin>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <configuration>
+        <source>1.6</source>
+	<target>1.6</target>
+	<showDeprecation>true</showDeprecation>
+	<showWarnings>true</showWarnings>
+    </configuration>
+</plugin>
+ 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
